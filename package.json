@@ -1,0 +1,22 @@
+{
+  "name": "vue-demo",
+  "version": "1.0.0",
+  "description": "VUE demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "heheda",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/L-WindRider/vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/L-WindRider/vue/issues"
+  },
+  "homepage": "https://github.com/L-WindRider/vue#readme"
+}

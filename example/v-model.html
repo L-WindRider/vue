@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>v-model 数据源绑定</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>v-model 数据源绑定</h1>
+        <hr>
+        <div id="app">
+            <div>
+                <div>{{message1}}</div>
+                v-model双向绑定：<input type="text" v-model="message1">
+            </div>
+            <hr>
+            <div>
+                <div>{{message2}}</div>
+                v-model lazy懒加载绑定：<input type="text" v-model.lazy="message2">
+            </div>
+            <hr>
+            <div>
+                <div>{{message3}}</div>
+                v-model number数字绑定：<input type="text" v-model.number="message3">
+            </div>
+            <hr>
+            <div>
+                <div>{{message4}}</div>
+                v-model number文本绑定：<textarea cols="30" rows="2" v-model="message4"></textarea>
+            </div>
+            <hr>
+            <div>
+               <input type="checkbox" name="" id="" v-model="checkbox">
+               <label for="">{{checkbox}}</label>
+            </div>
+            <hr>
+            <div>
+               <input type="checkbox" name="" id="" value="h1" v-model="checkboxs">
+               <label for="">h1</label>
+               <input type="checkbox" name="" id="" value="h2" v-model="checkboxs">
+               <label for="">h2</label>
+               <p>{{checkboxs}}</p>
+            </div>
+            <hr>
+            <div>
+               <p v-for="checkbox in checkboxsz">
+                    <input type="checkbox" name="" id="" :value="checkbox.sz" v-model="checkboxz">
+                    <label for="">{{checkbox.sz}}</label>
+               </p>
+               <p>{{checkboxz}}</p>
+            </div>
+            <hr>
+            <div>
+               <input type="radio" name="" id="" value="男" v-model="radio">
+               <label for="">男</label>
+               <input type="radio" name="" id="" value="女" v-model="radio">
+               <label for="">女</label>
+               <p>{{radio}}</p>
+            </div>
+            <hr>
+            <div>
+               <p v-for="radio in radios">
+                    <input type="radio"  :value="radio.sex" v-model="radios_sex">
+                    <label for="">{{radio.sex}}</label>
+               </p>
+               <p>{{radios_sex}}</p>
+            </div>
+            <hr>
+        </div>
+        <script type="text/javascript">
+            var app=new Vue({
+                el:'#app',
+                data:{
+                    message1:'wangdamiao',
+                    message2:'wangdamiao',
+                    message3:'wangdamiao',
+                    message4:'wangdamiao',
+
+                    checkbox:true,
+                    checkboxs:[],
+
+                    checkboxsz:[{sz:"h1"}, {sz:"h2"}, {sz:"h3"}],
+                    checkboxz:[],
+
+                    radio:'男',
+                    radios_sex:'女',
+
+                    radios:[{sex:"男"},{sex:"女"}]
+                    
+                }
+            })
+        </script>
+    </body>
+</html>

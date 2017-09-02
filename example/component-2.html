@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>component-2 组件</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>component-2 组件</h1>
+        <hr>
+        <div id="app">
+            <panda form-here1="china"></panda>
+            <panda2 :form-here2="message"></panda2>
+        </div>
+        <template id="templates">
+                <div style="color:red;">panda form {{formHere2}}</div>
+        </template>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                   message:'china' 
+                },
+                components:{
+                    'panda':{
+                        template: `<div style="color:red;">panda form {{formHere1}}</div>`,
+                        props:['formHere1']//因为vue不支持-，所以在构造器中用小驼峰的写法把form-here改成formHere
+                    },
+                    'panda2':{
+                        template:'#templates',
+                        props:['formHere2']
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
