@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>methods 中参数的传递</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>methods 中参数的传递</h1>
+        <hr>
+        <div id="app">
+            {{message}}
+            <p><button @click="plus(2,$event)">plus</button></p>
+            <p><btn @click.native="plus(2)"></btn></p>
+        </div>
+        <button onclick="app.plus(2)">外部APP</button>
+        <script type="text/javascript">
+            var btn={
+                template:`<button>组件APP</button>`
+            }
+           var app=new Vue({
+            el:'#app',
+            data:{
+                message:0
+            },
+            methods:{
+                plus:function(number,event){
+                   console.log(number);
+                   console.log(event);
+                   if(number!='') {this.message+=number;}
+                   else {this.message++;}
+               }
+               
+            },
+            components:{
+                'btn':btn
+            }
+           })
+        </script>
+    </body>
+</html>

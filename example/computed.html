@@ -11,16 +11,30 @@
         <hr>
         <div id="app">
             {{newmessage}}
+            <p>{{newlist}}</p>
+            <ul>
+                <li v-for="newlisti in revernewlist">{{newlisti.title}}--{{newlisti.data}}</li>
+            </ul>
         </div>
         <script type="text/javascript">
+        var newlist=[
+            {title:'heheda1',data:'2017-3-8'},
+            {title:'heheda2',data:'2017-3-7'},
+            {title:'heheda3',data:'2017-3-6'},
+            {title:'heheda4',data:'2017-3-5'}
+        ]
            var app=new Vue({
             el:'#app',
             data:{
-                message:'100'//数据绑定
+                message:'100',
+                newlist:newlist
             },
             computed:{
                 newmessage:function(){
                     return this.message='相当于'+this.message+'美元';
+                },
+                revernewlist:function(){
+                    return this.newlist.reverse();
                 }
             }
            })
