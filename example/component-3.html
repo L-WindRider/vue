@@ -11,28 +11,27 @@
         <p>写子组件，要在父组件中挂载</p>
         <hr>
         <div id="app">
-            <panda></panda>
+            <heheda2></heheda2>
         </div>
         <script type="text/javascript">
-        var city={
-            template:`<div>sichuan of China!</div>`,
-        }
-        var pandacomponent={
-            template:`<div>
-            <div>panda form China!</div>
-            <city></city>
-            </div>`,
-            components:{
-              'city':city
+            let heheda1={
+                template:`<div>我是子</div>`
             }
-        }
-            var app = new Vue({
-                el: '#app',
+            let heheda2={
+                template:`<div>
+                        <div>panda form China!</div>
+                        <heheda1></heheda1>
+                        </div>`,
                 components:{
-                    'panda':pandacomponent
+                     'heheda1':heheda1
                 }
-                
-            });
+            }
+            var app=new Vue({
+                el:'#app',
+                components:{
+                    'heheda2':heheda2
+                }
+            })
         </script>
     </body>
 </html>

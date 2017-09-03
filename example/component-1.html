@@ -10,27 +10,27 @@
         <h1>component-1 组件</h1>
         <hr>
         <div id="app">
-            <heheda></heheda>
-            <panda></panda>
+            <jubu></jubu>
+            <quanju></quanju>
         </div>
         <div id="heheda">
-            <heheda></heheda>
+            <quanju></quanju> 
         </div>
         <script type="text/javascript">
-            Vue.component('heheda', {
-                template: `<div style="color:red;">我是全局的heheda组件---放在vue作用域里面</div>`
-            })
-            var app = new Vue({
-                el: '#app',
+            Vue.component('quanju',{
+                template:`<div style="color:red;">我是全局的component组件---放在vue作用域里面</div>`
+            });
+            var app=new Vue({
+                el:'#app',
                 components:{
-                    'panda':{
-                        template: `<div style="color:red;">我是局部的panda组件---放在vue作用域里面</div>`
-                    }
+                   'jubu':{
+                        template:`<div style="color:red;">我是局部的commponent组件---放在vue-app作用域里面</div>`
+                   }
                 }
             });
-            var heheda = new Vue({
-                el: '#heheda'
-            });
+            var heheda=new Vue({
+                el:'#heheda'
+            })
         </script>
     </body>
 </html>
