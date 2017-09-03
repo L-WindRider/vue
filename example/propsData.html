@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>propsData Option</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>propsData Option</h1>
+        <p>propsData 传值</p>
+        <hr>
+        <header></header>
+        <script type="text/javascript">
+            var header_a=Vue.extend({
+                template:`<div>{{message}}-{{a}}</div>`,
+                data:function(){
+                    return{
+                        message:'呵呵哒'
+                    } 
+                },
+                props:['a']
+            });
+            new header_a({propsData:{a:1}}).$mount('header');//挂载
+        </script>
+    </body>
+</html>
