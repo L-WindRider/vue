@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>内置组件 -slot讲解</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>内置组件 -slot讲解</h1>
+        <hr>
+        <div id="app">
+            <heheda>
+                <span slot="name">{{hehedaData.name}}</span>
+                <span slot="url">你好</span>
+                <span slot="jineng">{{hehedaData.jineng}}</span>
+            </heheda>
+        </div>
+        <template id="tem">
+           <div>
+               <p>名字：<slot name="name"></slot></p>
+                <p>链接：<slot name="url"></slot></p>
+                <p>技术：<slot name="jineng"></slot></p>
+           </div>
+        </template>
+        <script type="text/javascript">
+         var heheda={
+            template:'#tem'
+         } 
+          var app=new Vue({
+            el:'#app',
+            data:{
+               hehedaData:{
+                   name:'呵呵哒',
+                   url:'http://www.baidu.com',
+                   jineng:'web前端'
+               },
+            },
+            components:{
+                'heheda':heheda
+               }
+            
+          });
+        </script>
+    </body>
+</html>

@@ -10,52 +10,53 @@
         <h1>watch Option 监控数据</h1>
         <hr>
         <div id="app">
-           <p>今日的温度：{{newwendu}}</p>
-           <p>穿衣建议：{{chuanyi}}</p>
-           <p>
-               <button @click="plus">升高温度</button>
-               <button @click="reduce">降低温度</button>
-        </p>
+            <p>{{newnum}}</p>
+            <p>{{newzs}}</p>
+            <p>
+                <button @click="add">增加温度</button>
+                <button @click="reduce">降低温度</button>
+            </p>
         </div>
         <script type="text/javascript">
-           var chuanyiarry=['T恤短袖','夹克长裙','棉衣羽绒服']
-           var app=new Vue({
-            el:'#app',
-            data:{
-               wendu:14,
-               chuanyi:'夹克长裙'
-            },
-            computed:{
-                newwendu:function(){
-                    return this.wendu+'度';
-                }
-            },
-            methods:{
-                plus:function(){
-                    this.wendu+=5;
+            var app=new Vue({
+                el:'#app',
+                data:{
+                    num:0,
+                    zs:'棉衣羽绒服'
                 },
-                reduce:function(){
-                    this.wendu-=5;
+                computed:{ //计算
+                    newnum:function(){
+                        return '室内温度：'+this.num+'度'; 
+                    },
+                    newzs:function(){
+                        return '穿衣指数：'+this.zs; 
+                    }
+                },
+                methods:{
+                    add:function(){
+                        this.num+=5;
+                    },
+                    reduce:function(){
+                        this.num-=5;
+                    }
+                },
+                watch:{ //构造器内部使用watch
+                    num:function(newvalue,oldvalue){
+                        console.log(newvalue);//新值
+                        console.log(oldvalue);//旧值
+                        if(newvalue>=26) this.zs='T恤短袖';
+                        else if(newvalue<26&&newvalue>0) this.zs='夹克长裙';
+                        else this.zs='棉衣羽绒服';
+                    }
                 }
-            },
-            // watch:{
-            //     wendu:function(newvalue,oldvalue){
-            //         console.log(newvalue);//新值
-            //         console.log(oldvalue);//旧值
-            //         if(newvalue>=26) this.chuanyi='T恤短袖';
-            //         else if(newvalue<26&&newvalue>0) this.chuanyi='夹克长裙';
-            //         else this.chuanyi='棉衣羽绒服';
-                    
-            //     }
-            // }
-           })
-           app.$watch('wendu',function(newvalue,oldvalue){
+            })
+            app.$watch('num',function(newvalue,oldvalue){ //构造器内部通过app.使用watch
                 console.log(newvalue);//新值
                 console.log(oldvalue);//旧值
-                if(newvalue>=26) this.chuanyi='T恤短袖';
-                else if(newvalue<26&&newvalue>0) this.chuanyi='夹克长裙';
-                else this.chuanyi='棉衣羽绒服';
-           })
+                if(newvalue>=26) this.zs='T恤短袖';
+                else if(newvalue<26&&newvalue>0) this.zs='夹克长裙';
+                else this.zs='棉衣羽绒服';
+            })
         </script>
     </body>
 </html>

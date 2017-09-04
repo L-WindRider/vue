@@ -10,18 +10,19 @@
         <h1>propsData Option</h1>
         <p>propsData 传值</p>
         <hr>
-        <header></header>
+        <heheda></heheda>
         <script type="text/javascript">
-            var header_a=Vue.extend({
-                template:`<div>{{message}}-{{a}}</div>`,
+        var arr=[1,2];
+            var heheda=Vue.extend({ //创建几个扩展实例构造器
+                template:`<div>{{message}}-{{number}}</div>`,
                 data:function(){
                     return{
                         message:'呵呵哒'
-                    } 
+                    }
                 },
-                props:['a']
-            });
-            new header_a({propsData:{a:1}}).$mount('header');//挂载
+                props:['number']
+            })
+            new heheda({propsData:{number:arr[0]}}).$mount('heheda');
         </script>
     </body>
 </html>

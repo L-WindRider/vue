@@ -10,33 +10,38 @@
         <h1>methods 中参数的传递</h1>
         <hr>
         <div id="app">
-            {{message}}
-            <p><button @click="plus(2,$event)">plus</button></p>
-            <p><btn @click.native="plus(2)"></btn></p>
+            {{number}}
+            <p><button @click="add(2,$event)">ADD</button></p>
+            <p><heheda1 @click.native="add(2,$event)"></heheda1></p>
+            <p><heheda2 @click.native="add(2,$event)"></heheda2></p>
         </div>
-        <button onclick="app.plus(2)">外部APP</button>
+        <p><button onclick="app.add(2)">外部APP</button></p>
         <script type="text/javascript">
-            var btn={
+            Vue.component('heheda1',{
+                template:`<button>全局组件APP</button>`
+            });
+            var heheda2={
                 template:`<button>组件APP</button>`
             }
-           var app=new Vue({
-            el:'#app',
-            data:{
-                message:0
-            },
-            methods:{
-                plus:function(number,event){
-                   console.log(number);
-                   console.log(event);
-                   if(number!='') {this.message+=number;}
-                   else {this.message++;}
-               }
-               
-            },
-            components:{
-                'btn':btn
-            }
-           })
+            var app=new Vue({
+                el:'#app',
+                data:{
+                    number:0
+                },
+                methods:{
+                    add:function(num,event){
+                        console.log(num);
+                        console.log(event);
+                        switch(num){
+                            case '':this.number++;break;
+                            default:this.number+=num;break;
+                        }
+                    }
+                },
+                components:{
+                   'heheda2':heheda2 
+                }
+            })
         </script>
     </body>
 </html>
