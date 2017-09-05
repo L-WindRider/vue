@@ -16,35 +16,36 @@
         <p><button onclick="nextTick()">数据修改</button></p>
         <script type="text/javascript">
            var heheda=Vue.extend({
-               template:`<p>{{message}}</p>`,
-               data:function(){
-                   return{
-                    message:'呵呵哒！' 
-                   }
-               },
-               mounted:function(){
-                   console.log('mounted被创建')
-               },
-               destroyed:function(){
-                console.log('destroy-销毁之后')
+            template:`<p>{{message}}--{{num}}</p>`,
+            data:function(){
+                return{
+                    message:'呵呵哒'
+                }
+            },
+            props:['num'],
+            mounted:function(){
+                console.log('mounted被创建')
             },
             updated:function(){
-                console.log('updated-更新之后')
-               }
+                console.log('updated-更新之后');
+            },
+            destroyed:function(){
+                console.log('destroy-销毁之后');
+            }
+           
            })
-          var vm=new heheda().$mount('#app');
+          var vm=new heheda({propsData:{num:0}}).$mount('#app');
           function destroy(){
-              vm.$destroy()
+              vm.$destroy();
           }
           function forceUpdate(){
-              vm.$forceUpdate();
+              vm.$forceUpdate()
           }
           function nextTick(){
               vm.message='修改';
               vm.$nextTick(function(){
-                console.log('message被更改之后后调用')
+                console.log('message被更改之后后调用');
               })
-
           }
         </script>
     </body>

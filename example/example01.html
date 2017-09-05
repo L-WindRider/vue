@@ -20,13 +20,13 @@
             data:{
                 message:'Hello world!'//数据绑定
             },
-            mounted:function(){
-                $('#app').html('我是jQuery');
-            },
             methods:{
                 add:function(){
                     console.log("调用构造器内的add方法")
                 }
+            },
+            mounted:function(){
+                $('#app').html('我是jQuery');
             }
            })
            app.add();

@@ -29,23 +29,23 @@
                 }
             }
           });
-          function reduce(){
-              app.$emit('reduce');
-          }
-          app.$on('reduce',function(){
-              console.log("执行了reduce方法")
-                this.number--
-          });
-          function reduce_once(){
-            app.$emit('reduce_once');
-          }
-          app.$once('reduce_once',function(){ //只执行一次
-            console.log("执行了reduce_once方法")
-                this.number--
-          })
-          function off(){ //关闭事件
-              app.$off('reduce');
-          }
+         function reduce(){
+             app.$emit('reduce');
+         }
+         app.$on('reduce',function(){
+            console.log("执行了reduce方法")
+            this.number--
+         });
+         function reduce_once(){
+             app.$emit('reduce_once');
+         }
+         app.$once('reduce_once',function(){
+            console.log("执行了reduce_once方法--只执行一次")
+            this.number--
+         })
+         function off(){ //关闭事件
+             app.$off('reduce');
+         }
         </script>
     </body>
 </html>
