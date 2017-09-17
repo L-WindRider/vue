@@ -4,10 +4,10 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../dist/index.html'),//首页的打包位置，可以用绝对路径（E:/）
+    assetsRoot: path.resolve(__dirname, '../dist'),//文件夹目录，可以改（../heheda）
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',//公用的路径，加一个. 改为相对路径
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
