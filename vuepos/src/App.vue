@@ -1,23 +1,22 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+  <div id="app" class="lh_befoafte">
+    <posleft></posleft>
+   <div class="posright">
+      <router-view></router-view>
+   </div>
   </div>
 </template>
 
 <script>
+import posleft from '@/components/common/posleft'
 export default {
-  name: 'app'
+  name: 'app',
+  components:{
+    posleft
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+.posright{float:right;width: 95%;height: 100%;overflow:hidden;}
 </style>
