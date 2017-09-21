@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>vue.set 扩展实例构造器</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>vue.set 扩展实例构造器</h1>
+        <h5>由于Javascript的限制，Vue不能自动检测以下变动的数组。</h5>
+        <h5>*当你利用索引直接设置一个项时，vue不会为我们自动更新。</h5>
+        <h5>*当你修改数组的长度时，vue不会为我们自动更新。</h5>
+        <h5>这时我们的界面是不会自动跟新数组的，我们需要用Vue.set(app.arr,1,’ddd’)来设置改变，vue才会给我们自动更新，这就是Vue.set存在的意义。</h5>
+        <hr>
+        <div id="app">
+            {{conunt}}
+            <ul>
+                <li v-for="item in arr">{{item}}</li>
+            </ul>
+            <!-- <button @click>加</button> -->
+        </div>
+        <button onclick="add1()">outdata+</button>
+        <button onclick="add2()">app+</button>
+        <button onclick="add3()">Vue.set+</button>
+        <button onclick="add4()">Vue.set改变数组</button>
+        <script type="text/javascript">
+        function add1(){
+           outdata.conunt++;
+        }
+        function add2(){
+           app.conunt++;
+        }
+        function add3(){
+           Vue.set(outdata,'conunt',2);
+        }
+        function add4(){
+           Vue.set(outdata2.arr,1,'d');
+        }
+        var outdata={
+            conunt:1,
+            goods:'car'
+        }
+        var outdata2={
+            conunt:1,
+            arr:['aa','bb','cc']
+        }
+            var app=new Vue({
+                el:'#app',
+                data:outdata,
+                data:outdata2,
+            })
+        </script>
+    </body>
+</html>

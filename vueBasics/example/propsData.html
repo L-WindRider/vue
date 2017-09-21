@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>propsData Option</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>propsData Option</h1>
+        <p>propsData 传值</p>
+        <hr>
+        <heheda></heheda>
+        <script type="text/javascript">
+        var arr=[1,2];
+            var heheda=Vue.extend({ //创建几个扩展实例构造器
+                template:`<div>{{message}}-{{number}}</div>`,
+                data:function(){
+                    return{
+                        message:'呵呵哒'
+                    }
+                },
+                props:['number']
+            })
+            new heheda({propsData:{number:arr[0]}}).$mount('heheda');
+        </script>
+    </body>
+</html>

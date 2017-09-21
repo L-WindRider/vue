@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>vue.directive 自定义指令</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <style>
+            .color{color:royalblue}
+        </style>
+    </head>
+    <body>
+        <h1>vue.directive 自定义指令</h1>
+        <hr>
+        <div id="app">
+            <div v-heheda="color">{{num}}</div>
+            <p><button @click="add">add</button></p>
+        </div>
+        <div>
+            <button onclick="delbind()">解绑</button> --解除vue绑定，在app外面绑定解绑事件
+        </div>
+        <script type="text/javascript">
+            function delbind(){ //解绑
+                app.$destroy();
+            }
+            // Vue.directive("heheda", { //自定义指令有五个生命周期（也叫钩子函数）
+            //     bind: function (el,binding) {//被绑定--bind:只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个绑定时执行一次的初始化动作。
+            //         console.log('1 - bind');
+            //         el.style.color = binding.value;
+            //     },
+            //     inserted: function () {//绑定到节点--inserted:被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于document中）。
+            //         console.log('2 - inserted');
+            //     },
+            //     update: function () {//组件更新--update:被绑定于元素所在的模板更新时调用，而无论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新。
+            //         console.log('3 - update');
+            //     },
+            //     componentUpdated: function () {//组件更新完成--componentUpdated:被绑定元素所在模板完成一次更新周期时调用。
+            //         console.log('4 - componentUpdated');
+            //     },
+            //     unbind: function () {//解绑--unbind:只调用一次，指令与元素解绑时调用。
+            //         console.log('5 - unbind');
+            //     }
+            // });
+            Vue.directive("heheda", function (el, binding,vnode) {
+                console.log(el);//el: 指令所绑定的元素，可以用来直接操作DOM。
+                console.log(binding);//binding:  一个对象，包含指令的很多信息。
+                console.log(vnode)//Vue编译生成的虚拟节点。
+                el.style.color = binding.value;
+            });
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    num: 0,
+                    color: 'red'
+                },
+                methods: {
+                    add: function () {
+                        this.num++;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

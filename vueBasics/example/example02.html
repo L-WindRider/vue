@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>实例方法--$mount挂载&$destroy() 卸载&$forceUpdate() 更新&$nextTick()数据修改</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-1.8.3.min.js"></script>
+    </head>
+    <body>
+        <h1>实例方法--$mount挂载&$destroy() 卸载&$forceUpdate() 更新&$nextTick()数据修改</h1>
+        <hr>
+        <div id="app"></div>
+        <p><button onclick="destroy()">卸载</button></p>
+        <p><button onclick="forceUpdate()">刷新</button></p>
+        <p><button onclick="nextTick()">数据修改</button></p>
+        <script type="text/javascript">
+           var heheda=Vue.extend({
+            template:`<p>{{message}}--{{num}}</p>`,
+            data:function(){
+                return{
+                    message:'呵呵哒'
+                }
+            },
+            props:['num'],
+            mounted:function(){
+                console.log('mounted被创建')
+            },
+            updated:function(){
+                console.log('updated-更新之后');
+            },
+            destroyed:function(){
+                console.log('destroy-销毁之后');
+            }
+           
+           })
+          var vm=new heheda({propsData:{num:0}}).$mount('#app');
+          function destroy(){
+              vm.$destroy();
+          }
+          function forceUpdate(){
+              vm.$forceUpdate()
+          }
+          function nextTick(){
+              vm.message='修改';
+              vm.$nextTick(function(){
+                console.log('message被更改之后后调用');
+              })
+          }
+        </script>
+    </body>
+</html>

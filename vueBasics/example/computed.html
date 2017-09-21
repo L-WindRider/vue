@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello world</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>computed Option  计算选项</h1>
+        <hr>
+        <div id="app">
+            {{newnumber}}
+            <p>{{newlists}}</p>
+            <ul>
+                <li v-for="(newlist,index) in newlists">{{index+1}}、{{newlist.title}}--{{newlist.data}}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var newlist = [
+                { title: 'heheda1', data: '2017-3-8' },
+                { title: 'heheda2', data: '2017-3-7' },
+                { title: 'heheda3', data: '2017-3-6' },
+                { title: 'heheda4', data: '2017-3-5' }
+            ]
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    number: 100,
+                    newlist:newlist
+                },
+                computed: { //计算选项
+                    newnumber: function () {
+                        return this.number = '价值' + this.number + '美元';
+                    },
+                    newlists:function(){
+                        return this.newlist=this.newlist.reverse();//reverse倒序
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

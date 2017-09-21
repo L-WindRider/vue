@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mixins 混入选项操作</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h1>Mixins 混入选项操作</h1>
+        <p>全局混入先执行，然后混入执行，然后原生执行</p>
+        <hr>
+        <div id="app">
+            {{num}}
+            <p><button @click="add">ADD</button></p>
+        </div>
+        <script type="text/javascript">
+        var addconsloe={
+            updated:function(){
+                console.log("我是混入的updated"+this.num);
+            }
+        };
+        Vue.mixin({ //全局
+            updated:function(){
+                console.log("我是全局的混入的updated"+this.num); 
+            }
+        })
+           var app = new Vue({
+                el: '#app',
+                data: {
+                    num: 1
+                },
+                methods:{
+                    add:function(){
+                        this.num++
+                    }
+                },
+                updated:function(){
+                    console.log("我是原生的updated"+this.num);
+                },
+                mixins:[addconsloe]
+            })
+        </script>
+    </body>
+</html>
