@@ -32,23 +32,21 @@
            app.conunt++;
         }
         function add3(){
-           Vue.set(outdata,'conunt',2);
+           Vue.set(outdata,'conunt',8);
         }
+        let num=0;
         function add4(){
-           Vue.set(outdata2.arr,3,'d');
+            num++
+           Vue.set(outdata.arr,num,'d');
         }
         var outdata={
             conunt:1,
-            goods:'car'
-        }
-        var outdata2={
-            conunt:1,
+            goods:'car',
             arr:['aa','bb','cc']
         }
             var app=new Vue({
                 el:'#app',
-                data:outdata,
-                data:outdata2,
+                data:outdata
             })
         </script>
     </body>
