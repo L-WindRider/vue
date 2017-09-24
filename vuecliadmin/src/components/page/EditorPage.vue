@@ -69,6 +69,5 @@
         resize: vertical;
         background-color:#fff;
     }
- 
     
 </style>

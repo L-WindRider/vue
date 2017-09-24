@@ -1,6 +1,4 @@
 <template>
-   
-      
 <div>
      <input class="my-input" v-model="inputContent" placeholder="Take to do"  v-on:keyup.enter="onEnter"/>
      <ul class="todolist">
@@ -9,16 +7,10 @@
           </li>
       </ul>
 </div>
-
-
 </template>
 
 <script>
     import vPageTitle from '../common/pageTitle.vue';
-    
-    
-
-   
     export default {
         components:{
             vPageTitle
