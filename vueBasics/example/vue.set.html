@@ -19,6 +19,7 @@
                 <li v-for="item in arr">{{item}}</li>
             </ul>
             <!-- <button @click>加</button> -->
+            <button @click="newarr">app内部arr</button>
         </div>
         <button onclick="add1()">outdata+</button>
         <button onclick="add2()">app+</button>
@@ -36,18 +37,26 @@
         }
         let num=0;
         function add4(){
+            Vue.set(outdata.arr,num,'add4');
+            Vue.set(app.arr,num+1,'add4');
             num++
-           Vue.set(outdata.arr,num,'d');
         }
-        var outdata={
+        let outdata={
             conunt:1,
             goods:'car',
             arr:['aa','bb','cc']
         }
-            var app=new Vue({
-                el:'#app',
-                data:outdata
-            })
+        var app=new Vue({
+            el:'#app',
+            data:outdata,
+            methods:{
+                newarr(){
+                    // Vue.set(this.arr,1,'arr');
+                    // Vue.set(outdata.arr,4,'arr');
+                    this.arr.push("3");
+                }
+            }
+        })
         </script>
     </body>
 </html>
