@@ -1,24 +1,24 @@
-# jspangAdmin
+# hehedaAdmin
 
 > 一个建立在Vue2.0框架基础上的后台管理系统，它包含了后台所用的前端样式和常用组件。它可以快速的帮你搭建基于Vue的后台管理系统。
 ## 相关技术
 Vue-cli + element + eCharts
 ## Demo（案例预览）
-[Demo](http://jspang.com/jspangAdmin)
+[Demo](http://heheda.com/hehedaAdmin)
 
 ## image（图片）
 ### 后台首页（DashBoard）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin01.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin01.png)
 ### 基本图标（charts）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin02.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin02.png)
 ### 表单页面（Form Elements）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin03.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin03.png)
 ### 表格（Tables）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin04.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin04.png)
 ### MarkDown编辑和解析（MarkDown）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin05.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin05.png)
 ### 任务表单（To Do List）
-![jspangAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/jspangadmin06.png)
+![hehedaAdmin](http://7xjyw1.com1.z0.glb.clouddn.com/hehedaadmin06.png)
 ## Build Setup（使用搭建步骤）
 ``` bash
 # install dependencies（安装）

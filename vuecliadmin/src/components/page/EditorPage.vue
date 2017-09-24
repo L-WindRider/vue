@@ -1,8 +1,6 @@
 <template>
     <div >
         <v-pageTitle vtitle="EditorPage"></v-pageTitle>
-
-
         <!-- use with components - bidirectional data binding（双向数据绑定） -->
         <quill-editor ref="myTextEditor"
                     v-model="content"
@@ -13,32 +11,19 @@
         </quill-editor>
 
          <div class="html ql-editor" v-html="content"></div>
-
-
-
-        
-
-
     </div>
-
-
-
 </template>
 
 <script>
     import vPageTitle from '../common/pageTitle.vue';
     import { quillEditor } from 'vue-quill-editor';
-    
-
-    
-   
     export default {
         components:{
             vPageTitle,quillEditor
         },
         data(){
             return{
-                content:'<h2>JSPangAdmin 是一个由Vue2为框架开发的后台管理系统。</h2><h3>你可以随意的使用并编辑它，希望可以帮助前端开发者减轻开发步骤，让大家有时间泡妞和享受生活。</h3>',
+                content:'<h2>是一个由Vue2为框架开发的后台管理系统,你可以随意的使用并编辑它</h2>',
                 editorOption: {}
             }
         },

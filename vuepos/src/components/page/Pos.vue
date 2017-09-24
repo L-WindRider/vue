@@ -111,7 +111,7 @@ export default {
     }
   },
   created: function() {
-    axios.get('http://jspang.com/DemoApi/oftenGoods.php')
+    axios.get('http://heheda.com/DemoApi/oftenGoods.php')
       .then(response => {
         this.oftenGoods = response.data;
       })
@@ -119,7 +119,7 @@ export default {
         console.log(error);
         alert('网络错误，不能访问');
       })
-    axios.get('http://jspang.com/DemoApi/typeGoods.php')
+    axios.get('http://heheda.com/DemoApi/typeGoods.php')
       .then(response => {
         this.type0Goods1 = response.data[0];
         this.type0Goods2 = response.data[1];
