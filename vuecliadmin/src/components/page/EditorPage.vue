@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <v-pageTitle vtitle="EditorPage"></v-pageTitle>
         <!-- use with components - bidirectional data binding（双向数据绑定） -->
         <quill-editor ref="myTextEditor"

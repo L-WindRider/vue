@@ -61,12 +61,19 @@
             <hr>
             <div>
                <p v-for="radio in radios">
-                    <input type="radio"  :value="radio.sex" v-model="radios_sex">
+                    <input type="radio"  :value="radio.sex" v-model="radios_sex" >
                     <label for="">{{radio.sex}}</label>
                </p>
                <p>{{radios_sex}}</p>
             </div>
             <hr>
+            <div>
+                <p v-for="radio in radios2">
+                     <input type="radio" name="radios2"  :value="radio.isTop" v-model="radios2_sex" @click="radios2i(radio)">
+                     <label for="">{{radio.isTop}}</label>
+                </p>
+                <p>{{radios2_sex}}</p>
+             </div>
         </div>
         <script type="text/javascript">
             var app=new Vue({
@@ -83,11 +90,26 @@
                     checkboxsz:[{sz:"h1"}, {sz:"h2"}, {sz:"h3"}],
                     checkboxz:[],
 
-                    radio:'男',
-                    radios_sex:'女',
+                    radio:'女',
 
-                    radios:[{sex:"男"},{sex:"女"}]
-                    
+                    radios_sex:'女',
+                    radios:[{sex:"男"},{sex:"女"}],
+
+                    radios2_sex:'0',
+                    radios2:[
+                        {isTop:'1'},
+                        {isTop:'1'},
+                        {isTop:'1'},
+                    ]                                  
+                },
+                methods:{
+                    radios2i (radio){
+                        this.radios2.forEach(function(element) {
+                            element.isTop='1';   
+                        });
+                        radio.isTop='0';
+                        this.radios2_sex='0';
+                    }
                 }
             })
         </script>
