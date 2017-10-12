@@ -29,7 +29,7 @@
            </div>
            <br>
            <div :style="{color:red,fontSize:font}">6、绑定style</div>
-           <div :style="styleobj">7、用对象绑定style</div>
+           <div :style="styleobj" class="hehe" @click="hee($event)">7、用对象绑定style</div>
         </div>
         <script type="text/javascript">
           var app=new Vue({
@@ -47,6 +47,11 @@
                     fontSize:'160%',
                     backgroundColor:'red'
                 }
+              },
+              methods:{
+                hee(data){
+                    data.target.style='color:red';
+                } 
               }
           })
         </script>
