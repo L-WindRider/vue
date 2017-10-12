@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>vue.set 扩展实例构造器</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{conunt}}
+            <ul>
+                <li v-for="item in arr">{{item}}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                conunt:1,
+                goods:'car',
+                arr:['aa','bb','cc']
+            }
+            // methods:{
+            //     newarr(){
+            //         this.arr.push("的");
+            //     }
+            // }
+        })
+        Vue.set(app.arr,3,'的');
+        </script>
+    </body>
+</html>
