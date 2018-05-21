@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <style type="text/css">
+        .now{background: red;color: #FFF;}
+        </style>
     </head>
     <body>
         <h1>v-model 数据源绑定</h1>
@@ -67,6 +70,8 @@
                <p>{{radios_sex}}</p>
             </div>
             <hr>
+            <div v-for="option in optionJson" @click="toNextFun(option)" :class="{now:option.selected}">{{option.text}}</div>
+            <hr>
             <div>
                 <p v-for="radio in radios2">
                      <input type="radio" name="radios2"  :value="radio.isTop" v-model="radios2_sex" @click="radios2i(radio)">
@@ -95,6 +100,11 @@
                     radios_sex:'女',
                     radios:[{sex:"男"},{sex:"女"}],
 
+                    optionJson:[
+                        {text:"1",selected:true},
+                        {text:"2",selected:false},
+                        {text:"3",selected:false},
+                    ],
                     radios2_sex:'0',
                     radios2:[
                         {isTop:'1'},
@@ -109,6 +119,12 @@
                         });
                         radio.isTop='0';
                         this.radios2_sex='0';
+                    },
+                    toNextFun(option){
+                        this.optionJson.forEach(function(element) {
+                            element.selected=false;   
+                        });
+                        option.selected=true;
                     }
                 }
             })

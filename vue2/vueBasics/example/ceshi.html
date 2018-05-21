@@ -2,28 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>vue.set 扩展实例构造器</title>
+    <title>v-model</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../assets/js/vue.js"></script>
-</head>
+<style>
+    .now{background: red;color: #FFF;}
+</style>
 
+</head>
 <body>
-    <div id="app1">
-        <child msg="hello!"></child>
-        <child nihao="hello1!"></child>
-        <child nisha="hello2!"></child>
-    </div>
-    <script type="text/javascript">
-        Vue.config.debug = true;
-        Vue.component('child', {
-            template: '<p>{{ msg }}123{{nihao}}{{nisha}}123</p>',
-            props: ['msg', 'nihao', 'nisha'],
-        });
-        var vm = new Vue({
-            el: '#app1'
+    <div id="app">
+        <div v-for="option in optionJson" @click="toNextFun(option)" :class="{now:option.selected}">{{option.text}}</div>
+     </div>
+     <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                optionJson:[
+                    {text:"1",selected:true},
+                    {text:"2",selected:false},
+                    {text:"3",selected:false},
+                ]
+            },
+            methods:{
+                toNextFun(option){
+                    this.optionJson.forEach(function(element) {
+                        element.selected=false;   
+                    });
+                    option.selected=true;
+                }
+            }
         })
     </script>
 </body>
-
 </html>
